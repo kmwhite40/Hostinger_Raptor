@@ -13,7 +13,7 @@ import Contact from '@/pages/Contact';
 import Schedule from '@/pages/Schedule';
 import Blog from '@/pages/Blog';
 import Legal from '@/pages/Legal';
-import Stub from '@/pages/Stub';
+import NotFound from '@/pages/NotFound';
 
 export default function App() {
   return (
@@ -35,7 +35,7 @@ export default function App() {
         <Route path="/insights" element={<Blog />} />
         <Route path="/privacy-policy" element={<Legal doc="privacy" />} />
         <Route path="/terms-of-service" element={<Legal doc="terms" />} />
-        <Route path="*" element={<Stub title="Page not found" />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
