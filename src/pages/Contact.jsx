@@ -3,6 +3,7 @@ import { MapPin, Phone, Mail, Clock, Loader2, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button';
 import { PageHero } from '@/components/site/PageHero';
 import { Section } from '@/components/site/Section';
+import { Atmosphere } from '@/components/site/Atmosphere';
 import { Reveal } from '@/components/Reveal';
 import { supabase } from '@/lib/supabase';
 
@@ -25,13 +26,15 @@ export default function Contact() {
   async function onSubmit(e) {
     e.preventDefault();
     setStatus('sending');
+    // `contacts` has no `interest` column — fold the selection into the message.
+    const composedMessage =
+      (form.interest ? `Primary interest: ${form.interest}\n\n` : '') + form.message;
     const { error } = await supabase.from('contacts').insert([{
       name: form.full_name,
       email: form.work_email,
-      phone: form.phone,
-      company: form.company,
-      interest: form.interest,
-      message: form.message,
+      phone: form.phone || null,
+      company: form.company || null,
+      message: composedMessage,
     }]);
     if (error) {
       console.warn('[contact] insert failed:', error.message);
@@ -43,7 +46,8 @@ export default function Contact() {
   }
 
   return (
-    <>
+    <div className="relative">
+      <Atmosphere />
       <PageHero
         eyebrow="CONTACT US"
         title="Let's Secure Your Mission"
@@ -138,7 +142,7 @@ export default function Contact() {
           </Reveal>
         </div>
       </Section>
-    </>
+    </div>
   );
 }
 

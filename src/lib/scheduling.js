@@ -29,8 +29,7 @@ export async function createBooking({ name, email, org, notes, event, duration, 
     name,
     email,
     company: org || null,
-    interest: 'Meeting Request',
-    message: `Requested ${event} (${duration} min) for ${when}.` + (notes ? `\n\nNotes: ${notes}` : ''),
+    message: `Meeting request — ${event} (${duration} min) for ${when}.` + (notes ? `\n\nNotes: ${notes}` : ''),
   }]);
   return !fbErr;
 }

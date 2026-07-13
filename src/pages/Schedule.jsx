@@ -1,6 +1,7 @@
 import { Clock, Video, CalendarCheck, ShieldCheck, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Reveal } from '@/components/Reveal';
+import { Atmosphere } from '@/components/site/Atmosphere';
 import { BOOKINGS_URL } from '@/config';
 
 /*
@@ -19,7 +20,8 @@ const DETAILS = [
 
 export default function Schedule() {
   return (
-    <section className="container-x py-16 md:py-24">
+    <section className="relative container-x py-16 md:py-24">
+      <Atmosphere />
       <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
         {/* Left — framing */}
         <Reveal>
