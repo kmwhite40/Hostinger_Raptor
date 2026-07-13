@@ -1,32 +1,32 @@
-import { Reveal } from '@/components/Reveal';
+import { motion } from 'framer-motion';
 
-/** Standard interior-page hero: eyebrow label, title, and optional subtitle. */
+const rise = {
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+};
+
+/** Editorial interior-page hero: mono eyebrow, large display title, lede + actions. */
 export function PageHero({ eyebrow, title, subtitle, children }) {
   return (
     <section className="relative overflow-hidden border-b border-border">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_0%,hsl(190_100%_50%/0.1),transparent)]" />
-      <div className="container relative py-20 text-center md:py-28">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_70%_at_15%_0%,oklch(0.66_0.2_31/0.08),transparent)]" />
+      <div className="container-x relative py-20 md:py-28">
         {eyebrow && (
-          <Reveal>
-            <p className="text-xs font-bold tracking-widest text-primary">{eyebrow}</p>
-          </Reveal>
+          <motion.p {...rise} className="label-mono tick">{eyebrow}</motion.p>
         )}
-        <Reveal delay={0.05}>
-          <h1 className="mx-auto mt-4 max-w-4xl text-4xl font-extrabold tracking-tight md:text-6xl">
-            {title}
-          </h1>
-        </Reveal>
+        <motion.h1 {...rise} transition={{ ...rise.transition, delay: 0.05 }} className="fluid-h2 mt-6 max-w-4xl font-display font-extrabold">
+          {title}
+        </motion.h1>
         {subtitle && (
-          <Reveal delay={0.1}>
-            <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">{subtitle}</p>
-          </Reveal>
+          <motion.p {...rise} transition={{ ...rise.transition, delay: 0.1 }} className="measure mt-6 text-lg text-muted-foreground">
+            {subtitle}
+          </motion.p>
         )}
         {children && (
-          <Reveal delay={0.15}>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              {children}
-            </div>
-          </Reveal>
+          <motion.div {...rise} transition={{ ...rise.transition, delay: 0.15 }} className="mt-9 flex flex-col gap-3 sm:flex-row">
+            {children}
+          </motion.div>
         )}
       </div>
     </section>

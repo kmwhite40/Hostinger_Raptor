@@ -1,97 +1,91 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Twitter, MapPin, Phone, Mail } from 'lucide-react';
+import { Linkedin, ArrowUpRight } from 'lucide-react';
+import { RaptorMark } from '@/components/brand/Logo';
 
-const QUICK = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/solutions', label: 'Solutions' },
-  { to: '/services', label: 'Services' },
-  { to: '/careers', label: 'Careers' },
-  { to: '/contact', label: 'Contact' },
+const COLS = [
+  {
+    title: 'Capabilities',
+    links: [
+      { to: '/services/cybersecurity', label: 'Cybersecurity' },
+      { to: '/services/government-cloud', label: 'Secure Cloud' },
+      { to: '/services/cmmc-compliance', label: 'Compliance & Readiness' },
+      { to: '/services/advisory', label: 'Advisory & Strategy' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { to: '/who-we-serve', label: 'Who We Serve' },
+      { to: '/about', label: 'About' },
+      { to: '/careers', label: 'Careers' },
+      { to: '/insights', label: 'Insights', alt: '/blog' },
+    ],
+  },
 ];
 
-const CERTS = ['SDVOSB', 'Top Secret', 'CMMC L2', 'ISO 9001', 'NIST 800-171'];
+const CREDS = ['SDVOSB', 'CMMC L2', 'ISO 9001', 'NIST 800-171', 'Top Secret FCL'];
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-secondary/30">
-      <div className="container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="surface-bone border-t border-border bg-background text-foreground">
+      <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
-          <Link to="/" className="flex items-center gap-2.5">
-            <img src="/assets/logo-eagle.png" alt="Raptor Solutions" className="h-10 w-auto" />
-            <span className="text-lg font-extrabold tracking-tight">
-              RAPTOR <span className="text-primary">SOLUTIONS</span>
+          <span className="flex items-center gap-2.5 text-foreground">
+            <RaptorMark className="h-8 w-8" />
+            <span className="font-display text-lg font-extrabold uppercase tracking-[-0.01em]">
+              Raptor <span className="font-semibold text-muted-foreground">Solutions</span>
             </span>
-          </Link>
-          <p className="mt-3 text-xs font-semibold tracking-widest text-primary">
-            STRATEGIC. SECURE. ADVANCED.
+          </span>
+          <p className="label-mono mt-4">Precision · Readiness · Momentum</p>
+          <p className="measure mt-4 text-sm text-muted-foreground">
+            Veteran-led technology services for federal agencies and the Defense Industrial Base —
+            secure cyber, cloud, compliance, data, and cleared-workforce capabilities for missions
+            that cannot fail.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Empowering federal agencies with secure, veteran-led technology solutions.
-            Delivering mission-focused excellence across the defense industrial base.
-          </p>
-          <div className="mt-5 flex gap-3">
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"
-               className="flex h-9 w-9 items-center justify-center rounded-md bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground">
-              <Linkedin className="h-4 w-4" />
-            </a>
-            <a href="https://x.com" target="_blank" rel="noreferrer"
-               className="flex h-9 w-9 items-center justify-center rounded-md bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground">
-              <Twitter className="h-4 w-4" />
-            </a>
+        </div>
+
+        {COLS.map((col) => (
+          <div key={col.title}>
+            <h3 className="label-mono">{col.title}</h3>
+            <ul className="mt-4 space-y-2.5">
+              {col.links.map((l) => (
+                <li key={l.label}>
+                  <Link to={l.alt || l.to} className="text-sm text-muted-foreground transition-colors hover:text-accent">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        ))}
 
         <div>
-          <h4 className="text-xs font-bold tracking-widest text-foreground/60">QUICK LINKS</h4>
-          <ul className="mt-4 space-y-2.5">
-            {QUICK.map((q) => (
-              <li key={q.to}>
-                <Link to={q.to} className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                  {q.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-xs font-bold tracking-widest text-foreground/60">CONTACT INFO</h4>
-          <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-            <li className="flex gap-2.5">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <span>3090 N Goliad St, Suite 102 #834<br />Rockwall, TX 75087</span>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <Phone className="h-4 w-4 shrink-0 text-primary" />
-              <a href="tel:+19456672013" className="transition-colors hover:text-primary">(945) 667-2013</a>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <Mail className="h-4 w-4 shrink-0 text-primary" />
-              <a href="mailto:info@raptor-ent.com" className="transition-colors hover:text-primary">info@raptor-ent.com</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-xs font-bold tracking-widest text-foreground/60">COMPANY</h4>
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {CERTS.map((c) => (
-              <li key={c} className="rounded-md border border-border bg-secondary/60 px-2.5 py-1 text-xs text-muted-foreground">
-                {c}
-              </li>
-            ))}
-          </ul>
-          <img src="/assets/sdvosb-badge.png" alt="SDVOSB Certified" className="mt-6 h-24 w-24 opacity-80" />
+          <h3 className="label-mono">Contact</h3>
+          <address className="mt-4 space-y-2 text-sm not-italic text-muted-foreground">
+            <p>3090 N Goliad St, Suite 102 #834<br />Rockwall, TX 75087</p>
+            <p><a href="tel:+19456672013" className="transition-colors hover:text-accent">(945) 667-2013</a></p>
+            <p><a href="mailto:info@raptor-ent.com" className="transition-colors hover:text-accent">info@raptor-ent.com</a></p>
+          </address>
+          <Link to="/contact" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+            Start a mission briefing <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
 
       <div className="border-t border-border">
-        <div className="container flex flex-col items-center justify-between gap-3 py-5 text-xs text-muted-foreground sm:flex-row">
-          <p>© {new Date().getFullYear()} RAPTOR SOLUTIONS, LLC. All rights reserved.</p>
-          <div className="flex gap-5">
-            <Link to="/privacy-policy" className="transition-colors hover:text-primary">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="transition-colors hover:text-primary">Terms of Service</Link>
+        <div className="container-x flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            {CREDS.map((c) => (
+              <span key={c} className="label-mono text-[0.62rem]">{c}</span>
+            ))}
+          </div>
+          <div className="flex items-center gap-5 text-xs text-muted-foreground">
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-accent">
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <Link to="/privacy-policy" className="transition-colors hover:text-accent">Privacy</Link>
+            <Link to="/terms-of-service" className="transition-colors hover:text-accent">Terms</Link>
+            <span>© {new Date().getFullYear()} Raptor Solutions, LLC</span>
           </div>
         </div>
       </div>

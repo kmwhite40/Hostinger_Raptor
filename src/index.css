@@ -2,73 +2,174 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens extracted from the original Raptor Solutions site (shadcn/ui system). */
+/*
+  RAPTOR SOLUTIONS — "Precision in Motion" design system
+  Palette: Obsidian / Warm Bone / Iron / Steel / Signal Vermilion
+  Tokens are authored in OKLCH for perceptual consistency. Dark (obsidian) is
+  the base surface; `.surface-bone` flips a subtree to the light bone treatment
+  for editorial section pacing. Components consume semantic tokens only.
+*/
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
-    --primary: 190 100% 35%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 190 100% 35%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 190 100% 35%;
-    --radius: 0.75rem;
+    /* Brand primitives (OKLCH) */
+    --obsidian: 0.17 0.008 220;
+    --obsidian-deep: 0.13 0.008 220;
+    --iron: 0.27 0.008 210;
+    --iron-soft: 0.32 0.007 210;
+    --bone: 0.95 0.012 90;
+    --bone-dim: 0.9 0.014 88;
+    --steel: 0.72 0.008 220;
+    --steel-dim: 0.56 0.008 220;
+    --vermilion: 0.66 0.2 31;
+    --vermilion-bright: 0.7 0.21 33;
+    --tech-blue: 0.72 0.09 236;
+
+    /* Semantic — dark (default) */
+    --background: var(--obsidian-deep);
+    --foreground: 0.96 0.006 90;
+    --surface: var(--obsidian);
+    --elevated: var(--iron);
+    --muted: var(--iron-soft);
+    --muted-foreground: var(--steel);
+    --border: 0.3 0.006 220;
+    --border-strong: 0.4 0.006 220;
+    --accent: var(--vermilion);
+    --accent-bright: var(--vermilion-bright);
+    --accent-foreground: 0.98 0.004 90;
+    --ring: var(--vermilion);
+    --data: var(--tech-blue);
+    --success: 0.7 0.15 155;
+    --warning: 0.78 0.15 75;
+    --error: 0.62 0.2 25;
+
+    --radius: 4px;
+    --radius-lg: 8px;
+    --container: 1240px;
+
+    --font-display: 'Archivo', 'Schibsted Grotesk', system-ui, sans-serif;
+    --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   }
 
-  .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 14%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 14%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 190 100% 50%;
-    --primary-foreground: 0 0% 10%;
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 190 100% 50%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 190 100% 50%;
+  /* Editorial light band — warm bone */
+  .surface-bone {
+    --background: var(--bone);
+    --foreground: var(--obsidian-deep);
+    --surface: var(--bone-dim);
+    --elevated: 0.99 0.006 90;
+    --muted: 0.88 0.014 88;
+    --muted-foreground: 0.42 0.01 220;
+    --border: 0.84 0.012 88;
+    --border-strong: 0.74 0.012 88;
+    --accent-foreground: 0.98 0.004 90;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
+    border-color: oklch(var(--border));
   }
   html {
     scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    background-color: oklch(var(--background));
+    color: oklch(var(--foreground));
+    font-family: var(--font-body);
+    font-feature-settings: 'cv01', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: oklch(var(--accent) / 0.85);
+    color: oklch(var(--accent-foreground));
+  }
+  :focus-visible {
+    outline: 2px solid oklch(var(--ring));
+    outline-offset: 2px;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
   }
 }
 
-/* Brand helpers */
 @layer components {
+  .container-x {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* Technical / metadata label */
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: oklch(var(--muted-foreground));
+  }
+
+  /* THE RAPTOR CUT — forward-pointing wedge, used selectively */
+  .raptor-cut {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5rem), calc(100% - 1.5rem) 100%, 0 100%);
+  }
+  .raptor-cut-tl {
+    clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%, 0 1.5rem);
+  }
+
+  /* Vermilion tick used as a section/eyebrow marker */
+  .tick::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 2px;
+    margin-right: 0.75rem;
+    vertical-align: middle;
+    background: oklch(var(--accent));
+  }
+
+  .hairline {
+    border-top: 1px solid oklch(var(--border));
+  }
+}
+
+@layer utilities {
+  .text-accent { color: oklch(var(--accent)); }
+  .bg-accent { background-color: oklch(var(--accent)); }
+  .fluid-display {
+    font-size: clamp(2.75rem, 7vw, 6.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+  .fluid-h2 {
+    font-size: clamp(1.9rem, 4vw, 3.25rem);
+    line-height: 1.04;
+  }
+  .measure { max-width: 62ch; }
+  .grain {
+    background-image: radial-gradient(oklch(var(--foreground) / 0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+  /* Back-compat helpers used by earlier pages, remapped to the brand accent.
+     Solid color (not gradient) per brand guidance — no decorative gradient text. */
   .text-gradient-brand {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(90deg, hsl(190 100% 50%), hsl(200 100% 65%));
+    color: oklch(var(--accent));
   }
   .glow-primary {
-    box-shadow: 0 0 40px -8px hsl(190 100% 50% / 0.45);
+    box-shadow: 0 0 40px -12px oklch(var(--accent) / 0.5);
+  }
+}
+
+/* Reduced motion: strip continuous/parallax motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
