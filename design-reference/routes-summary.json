@@ -1,0 +1,241 @@
+[
+  {
+    "route": "/",
+    "slug": "home",
+    "textLen": 1897,
+    "headings": [
+      "RAPTOR SOLUTIONS",
+      "Elite Solutions for  Critical Missions",
+      "Cyber Security",
+      "Talent Management",
+      "Advanced Analytics",
+      "Compliance & Governance",
+      "Our Mission",
+      "Our Vision"
+    ]
+  },
+  {
+    "route": "/about",
+    "slug": "about",
+    "textLen": 2094,
+    "headings": [
+      "About Raptor",
+      "Driving Federal Excellence with Proven IT Solutions",
+      "Our Core Values",
+      "Integrity",
+      "Excellence",
+      "Commitment",
+      "Explore Our Impact"
+    ]
+  },
+  {
+    "route": "/services",
+    "slug": "services",
+    "textLen": 1358,
+    "headings": [
+      "Our Services",
+      "Solutions for a Secure Government",
+      "Government Cloud (GCC High)",
+      "Cybersecurity Services",
+      "CMMC & Compliance",
+      "Advisory & Strategy",
+      "Ready to Secure Your Future?"
+    ]
+  },
+  {
+    "route": "/services/advisory",
+    "slug": "services__advisory",
+    "textLen": 2161,
+    "headings": [
+      "Advisory Services",
+      "Executive-Level Guidance",
+      "Fractional Leadership",
+      "Virtual CISO (vCISO)",
+      "Virtual CIO (vCIO)",
+      "Strategic Value Proposition",
+      "Business Alignment",
+      "Cost Optimization",
+      "Executive Communication",
+      "Other Solutions",
+      "Ready to elevate your mission?"
+    ]
+  },
+  {
+    "route": "/services/cmmc-compliance",
+    "slug": "services__cmmc-compliance",
+    "textLen": 2490,
+    "headings": [
+      "CMMC & Compliance",
+      "CMMC-Focused Services",
+      "Readiness Assessments",
+      "Pre-Assessment Advisory",
+      "GovCloud Enclaves",
+      "Gap Remediation",
+      "Shared Responsibility",
+      "Additional Compliance Support",
+      "Your Certification Pathway",
+      "1. Assess & Plan",
+      "2. Remediate & Build",
+      "3. Operate & Maintain"
+    ]
+  },
+  {
+    "route": "/services/cybersecurity",
+    "slug": "services__cybersecurity",
+    "textLen": 2717,
+    "headings": [
+      "Cybersecurity",
+      "Managed Security Services",
+      "SOC-as-a-Service (SOCaaS)",
+      "Extended Detection & Response (XDR)",
+      "Microsoft Sentinel Management",
+      "Incident Response",
+      "Vulnerability Management",
+      "Continuous Monitoring",
+      "Strategic Security Leadership",
+      "vCISO Services",
+      "Zero Trust Architecture",
+      "Risk Assessments"
+    ]
+  },
+  {
+    "route": "/services/government-cloud",
+    "slug": "services__government-cloud",
+    "textLen": 2381,
+    "headings": [
+      "Government Cloud",
+      "Architecture & Migration Services",
+      "Areas of Expertise",
+      "GCC High Optimization",
+      "Azure Government",
+      "Identity & Access (IAM)",
+      "Secure Collaboration",
+      "Purpose-Built For Your Mission",
+      "DIB Contractors",
+      "Federal Primes & Subs",
+      "CMMC Organizations",
+      "Other Solutions"
+    ]
+  },
+  {
+    "route": "/solutions",
+    "slug": "solutions",
+    "textLen": 1359,
+    "headings": [
+      "Secure Mission. Simplify Compliance. Strengthen Defense.",
+      "Built for the Defense Industrial Base",
+      "Shield",
+      "Overwatch",
+      "Pathfinder",
+      "Ready to Secure Your Environment?"
+    ]
+  },
+  {
+    "route": "/why-choose-us",
+    "slug": "why-choose-us",
+    "textLen": 1507,
+    "headings": [
+      "Why Choose Raptor?",
+      "The RAPTOR Advantage",
+      "Innovative Solutions",
+      "Veteran-Led Excellence",
+      "Uncompromising Security",
+      "Trusted Partnership",
+      "Proven Track Record",
+      "Certified SDVOSB",
+      "Our Commitment",
+      "Ready for a Partnership?"
+    ]
+  },
+  {
+    "route": "/certifications",
+    "slug": "certifications",
+    "textLen": 1359,
+    "headings": [
+      "Our Certifications",
+      "Recognized for Quality & Security",
+      "Certified SDVOSB Company",
+      "ISO 9001:2015 Certified",
+      "CMMC Level 2 Compliance",
+      "Top Secret Facility Clearance",
+      "NIST 800-171 Compliance",
+      "Partner with a Certified Leader"
+    ]
+  },
+  {
+    "route": "/careers",
+    "slug": "careers",
+    "textLen": 1015,
+    "headings": [
+      "Join Our Mission",
+      "Current Openings",
+      "No Openings Right Now",
+      "Don't see the right fit?"
+    ]
+  },
+  {
+    "route": "/case-studies",
+    "slug": "case-studies",
+    "textLen": 1897,
+    "headings": [
+      "RAPTOR SOLUTIONS",
+      "Elite Solutions for  Critical Missions",
+      "Cyber Security",
+      "Talent Management",
+      "Advanced Analytics",
+      "Compliance & Governance",
+      "Our Mission",
+      "Our Vision"
+    ]
+  },
+  {
+    "route": "/contact",
+    "slug": "contact",
+    "textLen": 1292,
+    "headings": [
+      "Contact Us",
+      "Contact Information",
+      "Headquarters",
+      "Phone",
+      "Email",
+      "Hours",
+      "Federal Identifiers",
+      "Send a Message"
+    ]
+  },
+  {
+    "route": "/blog",
+    "slug": "blog",
+    "textLen": 927,
+    "headings": [
+      "Insights & Intelligence",
+      "Categories",
+      "Need Expert Guidance?"
+    ]
+  },
+  {
+    "route": "/privacy-policy",
+    "slug": "privacy-policy",
+    "textLen": 2153,
+    "headings": [
+      "Privacy Policy",
+      "1. Introduction",
+      "2. Information We Collect",
+      "3. Use of Your Information",
+      "4. Contact Us"
+    ]
+  },
+  {
+    "route": "/terms-of-service",
+    "slug": "terms-of-service",
+    "textLen": 1864,
+    "headings": [
+      "Terms of Service",
+      "1. Agreement to Terms",
+      "2. Intellectual Property Rights",
+      "3. User Representations",
+      "4. Prohibited Activities",
+      "5. Modifications and Interruptions"
+    ]
+  }
+]
