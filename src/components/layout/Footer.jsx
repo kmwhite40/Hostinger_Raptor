@@ -23,7 +23,7 @@ const COLS = [
   },
 ];
 
-const CREDS = ['SDVOSB', 'CMMC L2', 'ISO 9001', 'NIST 800-171', 'Top Secret FCL'];
+const CREDS = ['SDVOSB', 'CMMC L2', 'NIST 800-171'];
 
 export function Footer() {
   return (

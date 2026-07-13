@@ -13,7 +13,7 @@ const rise = {
   transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
 };
 
-const CREDS = ['SDVOSB', 'CMMC Level 2', 'ISO 9001:2015', 'NIST 800-171', 'Top Secret FCL'];
+const CREDS = ['SDVOSB', 'CMMC Level 2', 'NIST 800-171'];
 
 const CAPS = [
   { n: '01', icon: ShieldCheck, title: 'Cybersecurity & Mission Assurance', to: '/services/cybersecurity',
